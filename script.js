@@ -257,6 +257,7 @@ document.getElementById('music-btn')?.addEventListener('click', () => {
 
 // ── Touch Support for Mobile ───────────────────────────────────
 card3d?.addEventListener('touchmove', (e) => {
+  if (card3d.classList.contains('is-flipped')) return;
   e.preventDefault();
   const touch = e.touches[0];
   const r = card3d.getBoundingClientRect();
@@ -264,8 +265,7 @@ card3d?.addEventListener('touchmove', (e) => {
   const y = (touch.clientY - r.top) / r.height - 0.5;
 
   card3d.classList.add('is-hovering');
-  const isFlippedNow = card3d.classList.contains('is-flipped');
-  const flipDeg = isFlippedNow ? 180 : 0;
+  const flipDeg = 0;
 
   // Milder tilt on mobile
   card3d.style.transform = `rotateY(${flipDeg + x * 10}deg) rotateX(${-y * 10}deg) translateY(-5px)`;

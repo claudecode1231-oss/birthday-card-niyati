@@ -248,8 +248,10 @@ body {
   background: var(--card-inside-bg);
   transform: rotateY(180deg);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .card-inside-content {
